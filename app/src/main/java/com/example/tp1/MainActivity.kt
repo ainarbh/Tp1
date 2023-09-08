@@ -3,6 +3,7 @@ package com.example.tp1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -24,6 +25,11 @@ class MainActivity :AppCompatActivity() {
         btnUpdateList.setOnClickListener {
             nameList[nameList.size - 1] = "Hello! I've been updated right now :)"
             namesAdapter.notifyDataSetChanged()
+        }
+
+        namesAdapter.itemClickListener = { position, name ->
+            Toast.makeText(this, "position: $position - name: $name", Toast.LENGTH_SHORT)
+                .show()
         }
 
 
